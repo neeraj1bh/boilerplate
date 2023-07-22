@@ -1,3 +1,10 @@
+const path = require("path");
+
+const buildEslintCommand = (filenames) =>
+  `next lint --fix --file ${filenames
+    .map((f) => path.relative(process.cwd(), f))
+    .join(" --file ")}`;
+
 module.exports = {
   // check Typescript files
   "**/*.(ts|tsx)": () => "yarn tsc --noEmit",
@@ -6,5 +13,5 @@ module.exports = {
   "**/*.(ts|tsx)": () => "yarn test",
 
   // lint and format TypeScript and JavaScript files
-  "**/*.(ts|tsx)": (filenames) => [`yarn eslint --fix ${filenames.join(" ")}`],
+  "**/*.{js,jsx,ts,tsx}": [buildEslintCommand],
 };
