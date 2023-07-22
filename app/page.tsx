@@ -38,6 +38,7 @@ export default function Home() {
           priority
         />
       </div>
+      <h1 className="m-16">Welcome to Next.js!</h1>
 
       <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
         <a
